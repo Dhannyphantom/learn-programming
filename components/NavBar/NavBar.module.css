@@ -1,0 +1,11 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 15px;
+  background-color: white;
+}
+
+.image {
+  border-radius: 30%;
+}
