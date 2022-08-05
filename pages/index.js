@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Card from "../components/Card/Card";
+import Info from "../components/Info/Info";
 import NavBar from "../components/NavBar/NavBar";
 import styles from "../styles/Home.module.css";
 
@@ -13,6 +14,7 @@ export default function Home() {
       </Head>
 
       <NavBar />
+      <Info />
       <div className={styles.wrapper}>
         <Card />
       </div>
