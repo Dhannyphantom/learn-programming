@@ -1,0 +1,19 @@
+.btn {
+  margin-bottom: 15px;
+  border: none;
+  cursor: pointer;
+  padding-left: 20px;
+  background-color: blue;
+  border-radius: 5px;
+  padding-right: 20px;
+}
+
+.btn:active {
+  background-color: lightblue;
+}
+
+.text {
+  color: white;
+  letter-spacing: 2px;
+  font-size: 0.7rem;
+}

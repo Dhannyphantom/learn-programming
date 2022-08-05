@@ -2,6 +2,7 @@ import styles from "./Card.module.css";
 import Image from "next/image";
 import FormInput from "../FormInput/FormInput";
 import { nanoid } from "nanoid";
+import Button from "../Button/Button";
 
 const boxData = [
   {
@@ -46,11 +47,11 @@ export default function Card() {
           width={150}
           height={150}
         />
-        <h3>Let's get you set up</h3>
+        <h3>Let's get you Enrolled</h3>
         <p>Enroll now to Learn Programming & User Experience</p>
       </div>
       <div className={styles.rightPane}>
-        <h4>Your Info!</h4>
+        <h4>Submit Your Info!</h4>
         <FormInput title="Name" placeholder="full name" />
         <FormInput title="Email" placeholder="email address" />
         <FormInput title="Contact" placeholder="phone number" />
@@ -66,6 +67,7 @@ export default function Card() {
           placeholder="phone number"
           type="radio"
         />
+        <Button />
       </div>
     </div>
   );
