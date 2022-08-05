@@ -7,7 +7,7 @@ export default function Info() {
       <p>
         Do you want learn Web development, App Development & User Experience?
       </p>
-      <p>Well Join Us now @St. Augustine's college, Kabba</p>
+      <p>Well Join Us now @{`St. Augustine's`} college, Kabba</p>
     </div>
   );
 }

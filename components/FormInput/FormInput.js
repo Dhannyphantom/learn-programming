@@ -9,9 +9,11 @@ export default function FormInput({
   boxData = [],
   type = "text",
 }) {
-  const { errors, values, setFieldValue } = useFormikContext();
+  const { errors, values, touched, setFieldTouched, setFieldValue } =
+    useFormikContext();
 
   const onChangeInput = (e) => {
+    // setFieldTouched(name, false, true);
     setFieldValue(e.target.name, e.target.value);
   };
 
@@ -23,6 +25,7 @@ export default function FormInput({
           {type === "text" ? (
             <input
               type={type}
+              onBlur={() => setFieldTouched(name, true, true)}
               name={name}
               onChange={onChangeInput}
               autoComplete="nocomplete"
@@ -59,7 +62,9 @@ export default function FormInput({
           )}
         </div>
       </div>
-      {errors[name] && <p className={styles.error}> {errors[name]} </p>}
+      {errors[name] && touched[name] && (
+        <p className={styles.error}> {errors[name]} </p>
+      )}
     </div>
   );
 }

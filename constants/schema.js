@@ -5,7 +5,7 @@ export const formInitials = {
   email: "",
   phoneNumber: "",
   gender: "",
-  hasPC: true,
+  hasPC: "Yes",
 };
 
 export const formValidation = Yup.object().shape({
