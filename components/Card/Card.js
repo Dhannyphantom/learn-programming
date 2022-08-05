@@ -17,7 +17,10 @@ export default function Card() {
       </div>
       <div className={styles.rightPane}>
         <h4>Your Info!</h4>
-        <FormInput />
+        <FormInput title="Name" placeholder="full name" />
+        <FormInput title="Email" placeholder="email address" />
+        <FormInput title="Contact" placeholder="phone number" />
+        <FormInput title="Gender" placeholder="phone number" type="checkbox" />
       </div>
     </div>
   );

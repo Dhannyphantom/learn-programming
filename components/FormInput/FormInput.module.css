@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.container > p {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.input {
+  width: 220px;
+  padding: 10px;
+  background-color: #e8eaed;
+  border: none;
+  font-size: 12px;
+  border-radius: 6px;
+}
+
+.input:focus {
+  /* border: 1px solid blue; */
+  outline: 1.5px solid blue;
+}
