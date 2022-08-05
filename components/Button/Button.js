@@ -13,7 +13,7 @@ export default function Button({ form = false, onPress }) {
   };
 
   return (
-    <button onClick={onBtnClick} className={styles.btn}>
+    <button type="button" onClick={onBtnClick} className={styles.btn}>
       <p className={styles.text}>Enroll</p>
     </button>
   );

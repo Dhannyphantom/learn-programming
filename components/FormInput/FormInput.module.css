@@ -48,6 +48,10 @@
   color: #9aa0a6;
 }
 
+.radioIconActive {
+  color: blue;
+}
+
 .radioLabel > label {
   cursor: pointer;
   font-size: 13px;

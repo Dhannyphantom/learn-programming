@@ -13,5 +13,5 @@ export const formValidation = Yup.object().shape({
   email: Yup.string().email().required().label("Email Address"),
   phoneNumber: Yup.string().required().label("Phone number"),
   gender: Yup.string().required().label("Gender"),
-  hasPC: Yup.bool().label("Own PC").required(),
+  hasPC: Yup.string().label("Own PC").required(),
 });
