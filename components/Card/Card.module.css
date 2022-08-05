@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: row;
   min-width: 85vw; /* TEST */
+  padding-bottom: 30px;
+  padding-top: 20px;
   background-color: white;
   box-shadow: 2px 2px 15px 3px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
@@ -27,5 +29,16 @@
 
 .rightPane > h4 {
   margin: 10px;
+  margin-bottom: 30px;
   color: gray;
+}
+
+@media only screen and (max-width: 600px) {
+  .leftPane {
+    display: none;
+  }
+
+  .rightPane {
+    width: 100%;
+  }
 }
