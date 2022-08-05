@@ -1,6 +1,40 @@
 import styles from "./Card.module.css";
 import Image from "next/image";
 import FormInput from "../FormInput/FormInput";
+import { nanoid } from "nanoid";
+
+const boxData = [
+  {
+    id: nanoid(),
+    name: "gender",
+    icon: ["fas", "venus"],
+    value: "Male",
+    selected: false,
+  },
+  {
+    id: nanoid(),
+    name: "gender",
+    icon: ["fas", "mars"],
+    value: "Female",
+    selected: false,
+  },
+];
+const pcData = [
+  {
+    id: nanoid(),
+    name: "gender",
+    icon: ["fas", "thumbs-up"],
+    value: "Yes",
+    selected: true,
+  },
+  {
+    id: nanoid(),
+    name: "gender",
+    icon: ["fas", "thumbs-down"],
+    value: "No",
+    selected: false,
+  },
+];
 
 export default function Card() {
   return (
@@ -20,7 +54,18 @@ export default function Card() {
         <FormInput title="Name" placeholder="full name" />
         <FormInput title="Email" placeholder="email address" />
         <FormInput title="Contact" placeholder="phone number" />
-        <FormInput title="Gender" placeholder="phone number" type="checkbox" />
+        <FormInput
+          title="Gender"
+          boxData={boxData}
+          placeholder="phone number"
+          type="radio"
+        />
+        <FormInput
+          title="Do you own a PC"
+          boxData={pcData}
+          placeholder="phone number"
+          type="radio"
+        />
       </div>
     </div>
   );
