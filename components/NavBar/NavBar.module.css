@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-right: 25px;
-  padding-left: 10px;
+  padding-right: 30px;
   align-items: center;
+  color: white;
   height: 70px;
-  background-color: white;
+  background-image: linear-gradient(to bottom right, #cc2b5e, #753a88);
 }
 
 .image {

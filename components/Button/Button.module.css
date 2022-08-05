@@ -3,7 +3,7 @@
   border: none;
   cursor: pointer;
   padding-left: 20px;
-  background-color: blue;
+  background-image: linear-gradient(to bottom right, #cc2b5e, #753a88);
   border-radius: 5px;
   padding-right: 20px;
 }

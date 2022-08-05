@@ -42,11 +42,11 @@ export default function Card() {
     <div className={styles.container}>
       <div className={styles.leftPane}>
         <Image
-          src="/logo.png"
+          src="/logo-transparent.png"
           className={styles.image}
-          width={150}
+          width={200}
           alt="company image"
-          height={150}
+          height={200}
         />
         <h3>{`Let's get you Enrolled`}</h3>
         <p>Enroll now to Learn Programming & User Experience</p>

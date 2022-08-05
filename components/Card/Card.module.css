@@ -10,7 +10,7 @@
 }
 
 .leftPane {
-  background-color: aquamarine;
+  background-image: linear-gradient(to bottom right, #cc2b5e, #753a88);
   padding: 15px;
   padding-top: 20px;
   display: flex;
@@ -22,6 +22,7 @@
 }
 
 .rightPane {
+  padding-top: 20px;
   padding-bottom: 30px;
   display: flex;
   flex-direction: column;
