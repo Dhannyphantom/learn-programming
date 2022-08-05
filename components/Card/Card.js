@@ -1,8 +1,10 @@
 import styles from "./Card.module.css";
 import Image from "next/image";
 import FormInput from "../FormInput/FormInput";
+import { Formik } from "formik";
 import { nanoid } from "nanoid";
 import Button from "../Button/Button";
+import { formInitials, formValidation } from "../../constants/schema";
 
 const boxData = [
   {
@@ -38,6 +40,10 @@ const pcData = [
 ];
 
 export default function Card() {
+  const handleFormSubmit = (formData) => {
+    console.log(formData);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.leftPane}>
@@ -51,25 +57,37 @@ export default function Card() {
         <h3>{`Let's get you Enrolled`}</h3>
         <p>Enroll now to Learn Programming & User Experience</p>
       </div>
-      <div className={styles.rightPane}>
-        <h4>Submit Your Info!</h4>
-        <FormInput title="Name" placeholder="full name" />
-        <FormInput title="Email" placeholder="email address" />
-        <FormInput title="Contact" placeholder="phone number" />
-        <FormInput
-          title="Gender"
-          boxData={boxData}
-          placeholder="phone number"
-          type="radio"
-        />
-        <FormInput
-          title="Do you own a PC"
-          boxData={pcData}
-          placeholder="phone number"
-          type="radio"
-        />
-        <Button />
-      </div>
+      <Formik
+        validationSchema={formValidation}
+        initialValues={formInitials}
+        onSubmit={handleFormSubmit}
+      >
+        <div className={styles.rightPane}>
+          <h4>Submit Your Info!</h4>
+          <FormInput title="Name" name="name" placeholder="full name" />
+          <FormInput title="Email" name="email" placeholder="email address" />
+          <FormInput
+            title="Contact"
+            name="phoneNumber"
+            placeholder="phone number"
+          />
+          <FormInput
+            name="gender"
+            title="Gender"
+            boxData={boxData}
+            placeholder="phone number"
+            type="radio"
+          />
+          <FormInput
+            title="Do you own a PC"
+            boxData={pcData}
+            name="hasPC"
+            placeholder="phone number"
+            type="radio"
+          />
+          <Button form />
+        </div>
+      </Formik>
     </div>
   );
 }
