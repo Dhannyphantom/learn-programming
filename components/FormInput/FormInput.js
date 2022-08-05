@@ -20,13 +20,12 @@ export default function FormInput({
         ) : (
           <div className={styles.checkboxContainer}>
             {boxData.map((obj) => (
-              <div className={styles.radioLabel}>
+              <div key={obj.id} className={styles.radioLabel}>
                 <input
                   type={type}
                   value={obj.value}
                   name={obj.name}
                   id={obj.id}
-                  key={obj.id}
                   className={styles.radio}
                   placeholder={`Enter your ${placeholder}`}
                 />

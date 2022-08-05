@@ -45,9 +45,10 @@ export default function Card() {
           src="/logo.png"
           className={styles.image}
           width={150}
+          alt="company image"
           height={150}
         />
-        <h3>Let's get you Enrolled</h3>
+        <h3>{`Let's get you Enrolled`}</h3>
         <p>Enroll now to Learn Programming & User Experience</p>
       </div>
       <div className={styles.rightPane}>
