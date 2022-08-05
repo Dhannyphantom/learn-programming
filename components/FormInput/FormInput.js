@@ -14,6 +14,7 @@ export default function FormInput({
         {type === "text" ? (
           <input
             type={type}
+            autoComplete="nocomplete"
             className={styles.input}
             placeholder={`Enter your ${placeholder}`}
           />

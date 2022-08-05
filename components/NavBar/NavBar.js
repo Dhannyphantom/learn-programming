@@ -8,8 +8,8 @@ export default function NavBar() {
         src="/logo-transparent.png"
         alt="logo"
         className={styles.image}
-        width={150}
-        height={150}
+        width={120}
+        height={120}
       />
       <h3>Learn Programming</h3>
       <h5>About</h5>
