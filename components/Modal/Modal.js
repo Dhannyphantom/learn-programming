@@ -4,11 +4,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Modal({ modal, setModal }) {
   if (!modal?.vis) return null;
+
+  const barColor = modal?.type === "error" ? styles.barError : "";
+  const barTextColor = modal?.type === "error" ? styles.barErrorText : "";
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
         <div className={styles.details}>
-          <p>{modal?.msg}</p>
+          <p className={`${styles.msg} ${barTextColor}`}>{modal?.msg}</p>
 
           <FontAwesomeIcon
             onClick={() => setModal({ vis: false })}
@@ -16,7 +20,7 @@ export default function Modal({ modal, setModal }) {
             icon={["fas", "close"]}
           />
         </div>
-        <div className={styles.bar} />
+        <div className={`${styles.bar} ${barColor}`} />
       </div>
     </div>
   );

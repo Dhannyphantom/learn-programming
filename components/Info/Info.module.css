@@ -1,3 +1,22 @@
 .container {
+  width: 100%;
+}
+
+.container > p,
+.container > h1 {
+  margin: 5px auto;
   text-align: center;
+}
+
+.container > h1 {
+  width: 65%;
+
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.container > p {
+  width: 70%;
+  margin-bottom: 20px;
+  line-height: 25px;
 }

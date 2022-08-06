@@ -4,6 +4,10 @@
   background-color: green;
 }
 
+.barError {
+  background-color: red;
+}
+
 .container {
   position: fixed;
   z-index: 1;
@@ -36,9 +40,13 @@
   align-items: center;
 }
 
-.details > p {
+.msg {
   padding-left: 10px;
   font-weight: 600;
   color: green;
   font-size: 14px;
+}
+
+.barErrorText {
+  color: red;
 }
