@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "./Card.module.css";
 import Image from "next/image";
 import FormInput from "../FormInput/FormInput";
@@ -6,6 +7,7 @@ import { nanoid } from "nanoid";
 import Button from "../Button/Button";
 import formApi from "../../routes/formApi";
 import { formInitials, formValidation } from "../../constants/schema";
+import Modal from "../Modal/Modal";
 
 const boxData = [
   {
@@ -41,69 +43,74 @@ const pcData = [
 ];
 
 export default function Card() {
+  const [errMsg, setErrMsg] = useState(null);
+  const [modal, setModal] = useState({ vis: false });
+
   const handleFormSubmit = async (formData) => {
+    setErrMsg(null);
     try {
       const res = await formApi.post("/enroll", formData);
-      console.log(res.data);
+      setModal({
+        vis: true,
+        msg: "Successfully enrolled, we will get back to you",
+        type: "success",
+      });
     } catch (err) {
-      console.log("Erorr", err?.response?.data || err?.message);
+      setModal({
+        vis: true,
+        msg: "User with these credentials already exist",
+        type: "error",
+      });
     }
-
-    // const res = await fetch("/api/form/enroll", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(formData),
-    // });
-    // const data = await res.json();
-    // console.log(data);
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.leftPane}>
-        <Image
-          src="/logo-transparent.png"
-          className={styles.image}
-          width={200}
-          alt="company image"
-          height={200}
-        />
-        <h3>{`Let's get you Enrolled`}</h3>
-        <p>Enroll now to Learn Programming & User Experience</p>
-      </div>
-      <Formik
-        validationSchema={formValidation}
-        initialValues={formInitials}
-        onSubmit={handleFormSubmit}
-      >
-        <div className={styles.rightPane}>
-          <h4>Submit Your Info!</h4>
-          <FormInput title="Name" name="name" placeholder="full name" />
-          <FormInput title="Email" name="email" placeholder="email address" />
-          <FormInput
-            title="Contact"
-            name="phoneNumber"
-            placeholder="phone number"
+    <>
+      <div className={styles.container}>
+        <div className={styles.leftPane}>
+          <Image
+            src="/logo-transparent.png"
+            className={styles.image}
+            width={200}
+            alt="company image"
+            height={200}
           />
-          <FormInput
-            name="gender"
-            title="Gender"
-            boxData={boxData}
-            placeholder="phone number"
-            type="radio"
-          />
-          <FormInput
-            title="Do you own a PC"
-            boxData={pcData}
-            name="hasPC"
-            placeholder="phone number"
-            type="radio"
-          />
-          <Button form />
+          <h3>{`Let's get you Enrolled`}</h3>
+          <p>Enroll now to Learn Programming & User Experience</p>
         </div>
-      </Formik>
-    </div>
+        <Formik
+          validationSchema={formValidation}
+          initialValues={formInitials}
+          onSubmit={handleFormSubmit}
+        >
+          <div className={styles.rightPane}>
+            <h4>Submit Your Info!</h4>
+            <FormInput title="Name" name="name" placeholder="full name" />
+            <FormInput title="Email" name="email" placeholder="email address" />
+            <FormInput
+              title="Contact"
+              name="phoneNumber"
+              placeholder="phone number"
+            />
+            <FormInput
+              name="gender"
+              title="Gender"
+              boxData={boxData}
+              placeholder="phone number"
+              type="radio"
+            />
+            <FormInput
+              title="Do you own a PC"
+              boxData={pcData}
+              name="hasPC"
+              placeholder="phone number"
+              type="radio"
+            />
+            <Button form />
+          </div>
+        </Formik>
+      </div>
+      <Modal modal={modal} setModal={setModal} />
+    </>
   );
 }
