@@ -9,7 +9,7 @@ export default function Info() {
         Experience?
       </p>
       <p>Well Join Us NOW @{`St. Augustine's`} college, Kabba</p>
-      <p>
+      <p className={styles.priceText}>
         <small className={styles.price}>
           {String.fromCharCode("0x20A6")}6,000
         </small>{" "}

@@ -8,6 +8,7 @@ import Button from "../Button/Button";
 import formApi from "../../routes/formApi";
 import { formInitials, formValidation } from "../../constants/schema";
 import Modal from "../Modal/Modal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const boxData = [
   {
@@ -43,11 +44,10 @@ const pcData = [
 ];
 
 export default function Card() {
-  const [errMsg, setErrMsg] = useState(null);
   const [modal, setModal] = useState({ vis: false });
 
   const handleFormSubmit = async (formData) => {
-    setErrMsg(null);
+    setModal({ vis: false });
     try {
       const res = await formApi.post("/enroll", formData);
       setModal({
@@ -77,6 +77,13 @@ export default function Card() {
           />
           <h3>{`Let's get you Enrolled`}</h3>
           <p>Enroll now to Learn Programming & User Experience</p>
+          <div className={styles.leftIcon}>
+            <FontAwesomeIcon
+              icon={["fas", "chevron-circle-right"]}
+              color="white"
+              size="2x"
+            />
+          </div>
         </div>
         <Formik
           validationSchema={formValidation}
