@@ -4,7 +4,6 @@
   margin-bottom: 6px;
   align-items: center;
   width: 100%;
-
   justify-content: space-around;
 }
 
@@ -32,7 +31,7 @@
 .input {
   width: 220px;
   padding: 15px;
-  background-color: #e8eaed;
+  background-color: #f1f3f4;
   border: none;
   font-size: 12px;
   border-radius: 6px;
