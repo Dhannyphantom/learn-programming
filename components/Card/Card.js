@@ -4,6 +4,7 @@ import FormInput from "../FormInput/FormInput";
 import { Formik } from "formik";
 import { nanoid } from "nanoid";
 import Button from "../Button/Button";
+import formApi from "../../routes/formApi";
 import { formInitials, formValidation } from "../../constants/schema";
 
 const boxData = [
@@ -40,8 +41,18 @@ const pcData = [
 ];
 
 export default function Card() {
-  const handleFormSubmit = (formData) => {
-    console.log(formData);
+  const handleFormSubmit = async (formData) => {
+    const res = await formApi.post("/enroll", formData);
+    console.log(res);
+    // const res = await fetch("/api/form/enroll", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(formData),
+    // });
+    // const data = await res.json();
+    // console.log(data);
   };
 
   return (
