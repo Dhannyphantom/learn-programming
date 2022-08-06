@@ -8,8 +8,9 @@ import Button from "../Button/Button";
 import formApi from "../../routes/formApi";
 import { formInitials, formValidation } from "../../constants/schema";
 import Modal from "../Modal/Modal";
+import Lottie from "react-lottie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import loader from "../../public/lottie/two_line_circle_spinner.json";
 const boxData = [
   {
     id: nanoid(),
@@ -43,22 +44,33 @@ const pcData = [
   },
 ];
 
+const lottieOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: loader,
+};
+
 export default function Card() {
   const [modal, setModal] = useState({ vis: false });
+  const [loading, setLoading] = useState(false);
 
   const handleFormSubmit = async (formData) => {
+    setLoading(true);
     setModal({ vis: false });
     try {
       const res = await formApi.post("/enroll", formData);
+      setLoading(false);
       setModal({
         vis: true,
         msg: res.data.msg,
         type: "success",
       });
     } catch (err) {
+      const resp = err?.response;
+      setLoading(false);
       setModal({
         vis: true,
-        msg: "User with these credentials already exist",
+        msg: resp.status == 500 ? resp.statusText : resp?.data?.msg,
         type: "error",
       });
     }
@@ -114,6 +126,11 @@ export default function Card() {
               type="radio"
             />
             <Button form />
+            {loading && (
+              <div className={styles.loader}>
+                <Lottie options={lottieOptions} width={50} height={50} />
+              </div>
+            )}
           </div>
         </Formik>
       </div>
