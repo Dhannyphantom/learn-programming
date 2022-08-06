@@ -18,7 +18,7 @@ export default function FormInput({
   };
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <div className={styles.container}>
         <p className={styles.title}>{title}</p>
         <div className={styles.inputContainer}>

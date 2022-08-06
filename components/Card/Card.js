@@ -52,7 +52,7 @@ export default function Card() {
       const res = await formApi.post("/enroll", formData);
       setModal({
         vis: true,
-        msg: "Successfully enrolled, we will get back to you",
+        msg: res.data.msg,
         type: "success",
       });
     } catch (err) {
@@ -84,7 +84,7 @@ export default function Card() {
           onSubmit={handleFormSubmit}
         >
           <div className={styles.rightPane}>
-            <h4>Submit Your Info!</h4>
+            <h4>Enrollment form</h4>
             <FormInput title="Name" name="name" placeholder="full name" />
             <FormInput title="Email" name="email" placeholder="email address" />
             <FormInput

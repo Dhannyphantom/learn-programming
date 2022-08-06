@@ -1,13 +1,15 @@
 .footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  margin-top: 50px;
-  background-image: linear-gradient(to bottom right, #cc2b5e, #753a88);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #041b2d;
 }
 
 .footer > p {
   font-size: 14px;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  margin: 0;
 }

@@ -11,7 +11,6 @@ export default function NavBar() {
         width={120}
         height={120}
       />
-      <h3>Learn Programming</h3>
       <h5>About</h5>
     </nav>
   );

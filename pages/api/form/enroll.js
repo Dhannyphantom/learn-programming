@@ -15,10 +15,11 @@ export default async function handler(req, res) {
 
       const user = await User.create(data);
 
-      res.status(200).json({ user });
+      res
+        .status(200)
+        .json({ msg: "Successfully enrolled, we will get back to you" });
     }
   } catch (err) {
-    console.log(err);
     res.status(422).json({ err });
   }
 }

@@ -6,7 +6,9 @@
   align-items: center;
   color: white;
   height: 70px;
-  background-image: linear-gradient(to bottom right, #cc2b5e, #753a88);
+  background-color: #041b2d;
+  box-shadow: 2px 1px 5px 6px rgba(0, 0, 0, 0.2);
+  /* background-image: linear-gradient(to bottom right, #0b0742, #120c6e); */
 }
 
 .image {
