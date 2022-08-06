@@ -3,19 +3,22 @@ import connectMongo from "../../../config/dbConnect";
 import User from "../../../models/User";
 
 export default async function handler(req, res) {
-  console.log(req.method);
-  if (req.method === "POST") {
-    try {
-      console.log("Connecting to Mongo");
-      await connectMongo();
-      console.log("Mongo connected");
+  try {
+    await connectMongo();
+    if (req.method === "POST") {
+      const data = req.body;
+      const { name, email, phoneNumber } = data;
+      const isExist = await User.findOne({ name, email, phoneNumber });
 
-      const user = await User.create(req.body);
+      if (isExist)
+        return res.status(422).json({ err: "Credentials already exist" });
+
+      const user = await User.create(data);
 
       res.status(200).json({ user });
-    } catch (err) {
-      console.log(err);
-      res.status(422).json({ err });
     }
+  } catch (err) {
+    console.log(err);
+    res.status(422).json({ err });
   }
 }

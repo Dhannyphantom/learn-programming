@@ -42,8 +42,13 @@ const pcData = [
 
 export default function Card() {
   const handleFormSubmit = async (formData) => {
-    const res = await formApi.post("/enroll", formData);
-    console.log(res);
+    try {
+      const res = await formApi.post("/enroll", formData);
+      console.log(res.data);
+    } catch (err) {
+      console.log("Erorr", err?.response?.data || err?.message);
+    }
+
     // const res = await fetch("/api/form/enroll", {
     //   method: "POST",
     //   headers: {
