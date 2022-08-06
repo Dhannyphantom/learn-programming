@@ -20,11 +20,13 @@ const userSchema = new Schema({
   gender: {
     type: String,
     required: true,
+    lowercase: true,
     enum: ["male", "Male", "female", "Female"],
   },
   hasPC: {
     type: String,
     required: true,
+    lowercase: true,
     enum: ["yes", "Yes", "No", "no"],
   },
 });

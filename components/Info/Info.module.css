@@ -13,10 +13,18 @@
   font-weight: 600;
 }
 
+.priceContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .priceText {
+  display: inline-block;
   border: 1px solid #041b2d;
-  padding: 6px;
-  margin: 0 auto;
+  padding: 15px 35px;
+  text-align: center;
   border-radius: 8px;
   cursor: default;
 }

@@ -8,7 +8,7 @@ import Button from "../Button/Button";
 import formApi from "../../routes/formApi";
 import { formInitials, formValidation } from "../../constants/schema";
 import Modal from "../Modal/Modal";
-import Lottie from "react-lottie";
+import Lottie from "react-lottie-player";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import loader from "../../public/lottie/two_line_circle_spinner.json";
 const boxData = [
@@ -43,12 +43,6 @@ const pcData = [
     selected: false,
   },
 ];
-
-const lottieOptions = {
-  loop: true,
-  autoplay: true,
-  animationData: loader,
-};
 
 export default function Card() {
   const [modal, setModal] = useState({ vis: false });
@@ -128,7 +122,12 @@ export default function Card() {
             <Button form />
             {loading && (
               <div className={styles.loader}>
-                <Lottie options={lottieOptions} width={50} height={50} />
+                <Lottie
+                  loop
+                  animationData={loader}
+                  play
+                  style={{ width: 50, height: 50 }}
+                />
               </div>
             )}
           </div>
