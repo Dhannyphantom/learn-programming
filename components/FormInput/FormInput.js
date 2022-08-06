@@ -20,7 +20,9 @@ export default function FormInput({
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <p className={styles.title}>{title}</p>
+        <div>
+          <p className={styles.title}>{title}</p>
+        </div>
         <div className={styles.inputContainer}>
           {type === "text" ? (
             <input

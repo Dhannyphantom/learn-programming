@@ -8,7 +8,13 @@ export default function Info() {
         Are you interested in learning Web development, App Development & User
         Experience?
       </p>
-      <p>Well Join Us now @{`St. Augustine's`} college, Kabba</p>
+      <p>Well Join Us NOW @{`St. Augustine's`} college, Kabba</p>
+      <p>
+        <small className={styles.price}>
+          {String.fromCharCode("0x20A6")}6,000
+        </small>{" "}
+        first month promo deal
+      </p>
     </div>
   );
 }
