@@ -20,10 +20,11 @@
 }
 
 .leftPane {
-  background-image: linear-gradient(to bottom right, #cc2b5e, #753a88);
+  background-image: linear-gradient(to bottom right, #041b2d, #003162);
   padding: 15px;
   padding-top: 20px;
   display: flex;
+  color: white;
   padding-bottom: 30px;
   flex-direction: column;
   align-items: center;

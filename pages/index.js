@@ -20,9 +20,7 @@ export default function Home() {
 
       <NavBar />
       <Info />
-      <div className={styles.wrapper}>
-        <Card />
-      </div>
+      <Card />
       <Tech />
       <Footer />
     </div>
