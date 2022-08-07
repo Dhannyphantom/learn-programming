@@ -3,6 +3,7 @@ import Card from "../components/Card/Card";
 import Footer from "../components/Footer/Footer";
 import Info from "../components/Info/Info";
 import NavBar from "../components/NavBar/NavBar";
+import Tech from "../components/Tech/Tech";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
       <div className={styles.wrapper}>
         <Card />
       </div>
+      <Tech />
       <Footer />
     </div>
   );
