@@ -14,3 +14,18 @@
 .image {
   border-radius: 30%;
 }
+
+.linkContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.linkContainer > h5 {
+  cursor: pointer;
+  padding: 6px;
+
+}
+
+.linkContainer > h5:hover {
+  color: aqua;
+}

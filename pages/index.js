@@ -18,11 +18,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <NavBar />
       <Info />
       <Card />
       <Tech />
-      <Footer />
     </div>
   );
 }
