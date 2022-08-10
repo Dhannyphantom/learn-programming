@@ -22,7 +22,7 @@ export default function Tech() {
   });
   return (
     <section className={styles.container}>
-      <h3>What You'll Learn</h3>
+      <h3>What {"You'll"} Learn</h3>
       <div className={styles.tech}>{renderTechs}</div>
     </section>
   );

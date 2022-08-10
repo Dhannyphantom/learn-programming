@@ -15,7 +15,7 @@ export default function Home() {
           name="description"
           content="Learn Programming & Become a Software Developer"
         />
-        <link rel="icon" href="/logo-transparent.png" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
 
       <NavBar />
