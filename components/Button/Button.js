@@ -1,20 +1,24 @@
 import styles from "./Button.module.css";
 import { useFormikContext } from "formik";
 
-export default function Button({ form = false, onPress }) {
-  const { handleSubmit } = useFormikContext();
+const dummy = {
+  handleSubmit: () => null
+}
+
+export default function Button({noFormik = false,title, onPress }) {
+  const { handleSubmit } = noFormik ? dummy : useFormikContext();
 
   const onBtnClick = () => {
-    if (form) {
+    if (!noFormik) {
       handleSubmit();
     } else {
-      onPress();
+      onPress && onPress();
     }
   };
 
   return (
     <button type="button" onClick={onBtnClick} className={styles.btn}>
-      <p className={styles.text}>Enroll</p>
+      <p className={styles.text}> {title} </p>
     </button>
   );
 }

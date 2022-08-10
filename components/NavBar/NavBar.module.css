@@ -5,6 +5,7 @@
   padding-right: 30px;
   align-items: center;
   color: white;
+  margin-bottom: 30px;
   height: 70px;
   background-color: #041b2d;
   box-shadow: 2px 1px 5px 6px rgba(0, 0, 0, 0.2);
@@ -27,5 +28,5 @@
 }
 
 .linkContainer > h5:hover {
-  color: aqua;
+  color: #03F46B;
 }

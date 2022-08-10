@@ -13,8 +13,8 @@ export default function FormInput({
   const { errors, values, touched, setFieldTouched, setFieldValue } =
     useFormikContext();
 
-  const onChangeInput = (e) => {
-    setFieldValue(e.target.name, e.target.value);
+  const onChangeInput = (formName, formValue) => {
+    setFieldValue(formName, formValue);
   };
 
 
