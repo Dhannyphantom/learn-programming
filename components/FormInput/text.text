@@ -1,24 +1,4 @@
-import styles from "./Input.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-export default function Input({
-  title,
-  placeholder = "",
-  boxData = [],
-  onBlur,
-  values,
-  name,
-  onChangeText,
-  type = "text",
-}) {
-
-
-  const onChangeInput = (e) => {
-    onChangeText && onChangeText(e.target.name, e.target.value);
-  };
-
-  return (
-    <div className={styles.wrapper}>
+ <div className={styles.wrapper}>
       <div className={styles.container}>
         <div>
           <p className={styles.title}>{title}</p>
@@ -27,7 +7,7 @@ export default function Input({
           {type === "text" ? (
             <input
               type={type}
-              onBlur={onBlur}
+              onBlur={() => setFieldTouched(name, true, true)}
               name={name}
               onChange={onChangeInput}
               autoComplete="nocomplete"
@@ -64,6 +44,3 @@ export default function Input({
           )}
         </div>
       </div>
-    </div>
-  );
-}
