@@ -78,4 +78,45 @@ export const TECH_DATA = [
     name: "react native",
     bg: "#000",
   },
+  {
+    id: nanoid(),
+    image: "/techs/adobe_xd.png",
+    text: "#FFFFFF",
+    name: "adobe xd",
+    bg: "#35001f",
+  },
+];
+
+export const boxData = [
+  {
+    id: nanoid(),
+    name: "gender",
+    icon: ["fas", "venus"],
+    value: "Male",
+    selected: false,
+  },
+  {
+    id: nanoid(),
+    name: "gender",
+    icon: ["fas", "mars"],
+    value: "Female",
+    selected: false,
+  },
+];
+
+export const pcData = [
+  {
+    id: nanoid(),
+    name: "gender",
+    icon: ["fas", "thumbs-up"],
+    value: "Yes",
+    selected: true,
+  },
+  {
+    id: nanoid(),
+    name: "gender",
+    icon: ["fas", "thumbs-down"],
+    value: "No",
+    selected: false,
+  },
 ];

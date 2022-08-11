@@ -3,45 +3,13 @@ import styles from "./Card.module.css";
 import Image from "next/image";
 import FormInput from "../FormInput/FormInput";
 import { Formik } from "formik";
-import { nanoid } from "nanoid";
 import Button from "../Button/Button";
 import formApi from "../../routes/formApi";
 import { formInitials, formValidation } from "../../constants/schema";
 import Modal from "../Modal/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Loader from "../Loader/Loader";
-const boxData = [
-  {
-    id: nanoid(),
-    name: "gender",
-    icon: ["fas", "venus"],
-    value: "Male",
-    selected: false,
-  },
-  {
-    id: nanoid(),
-    name: "gender",
-    icon: ["fas", "mars"],
-    value: "Female",
-    selected: false,
-  },
-];
-const pcData = [
-  {
-    id: nanoid(),
-    name: "gender",
-    icon: ["fas", "thumbs-up"],
-    value: "Yes",
-    selected: true,
-  },
-  {
-    id: nanoid(),
-    name: "gender",
-    icon: ["fas", "thumbs-down"],
-    value: "No",
-    selected: false,
-  },
-];
+import { boxData, pcData } from "../../constants/dataStore";
 
 export default function Card() {
   const [modal, setModal] = useState({ vis: false });
@@ -118,7 +86,7 @@ export default function Card() {
               placeholder="phone number"
               type="radio"
             />
-            <Button title="Enroll" noFormik={false}/>
+            <Button title="Enroll" noFormik={false} />
             <Loader visible={loading} />
           </div>
         </Formik>
