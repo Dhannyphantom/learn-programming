@@ -26,7 +26,7 @@ export default function Tech() {
     return <Item key={obj.id} item={obj} />;
   });
   return (
-    <section className={styles.container}>
+    <section id="whatYouLearn" className={styles.container}>
       <h3>What {"You'll"} Learn</h3>
       <div className={styles.tech}>{renderTechs}</div>
     </section>

@@ -21,12 +21,13 @@
   flex-direction: row;
 }
 
-.linkContainer > h5 {
+.linkTitle {
   cursor: pointer;
   padding: 6px;
-
+  text-transform: capitalize;
+  color: #fff;
 }
 
-.linkContainer > h5:hover {
-  color: #03F46B;
+.linkActive {
+  color: #03f46b;
 }

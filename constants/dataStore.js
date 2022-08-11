@@ -120,3 +120,27 @@ export const pcData = [
     selected: false,
   },
 ];
+
+export const navTab = [
+  {
+    id: nanoid(),
+    name: "home",
+    active: true,
+    scroll: true,
+    path: "/",
+  },
+  {
+    id: nanoid(),
+    name: "users",
+    active: false,
+    scroll: true,
+    path: "/users",
+  },
+  {
+    id: nanoid(),
+    name: "about",
+    active: false,
+    scroll: false,
+    path: "/#whatYouLearn",
+  },
+];
