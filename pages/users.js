@@ -18,7 +18,7 @@ export default function UsersPage() {
     const fetchUsers = async () => {
         console.log(token);
         try {
-            const res = await userApi.get(`/allUsers/?token=${token}`)
+            const res = await userApi.get(`/all-users/?token=${token}`)
             console.log(res.data);
             setUsers(res.data.users)
         } catch (err) {

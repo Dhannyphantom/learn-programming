@@ -63,7 +63,7 @@ export default function ListUsers({users = []}) {
     if (!users[0]) return null;
     const renderUserData = users.map((obj) => <Item item={obj} key={obj.id} />)
     return <section className={styles.section} >
-        <h2 className={styles.title} >Users</h2>
+        <h2 className={styles.title} >Users {`(${users.length})`} </h2>
         <div className={styles.container} >
             {renderUserData}
         </div>
