@@ -16,8 +16,10 @@ export default function UsersPage() {
     }
 
     const fetchUsers = async () => {
+        console.log(token);
         try {
             const res = await userApi.get(`/allUsers/?token=${token}`)
+            console.log(res.data);
             setUsers(res.data.users)
         } catch (err) {
             console.log(err)
@@ -30,6 +32,6 @@ export default function UsersPage() {
         <Button title="Fetch" onPress={fetchUsers} noFormik />
 
         </div>
-        <ListUsers />
+        <ListUsers users={users} />
     </div>
 }

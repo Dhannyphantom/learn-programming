@@ -119,7 +119,7 @@ export default function Card() {
               placeholder="phone number"
               type="radio"
             />
-            <Button title="Enroll" />
+            <Button title="Enroll" noFormik={false}/>
             {loading && (
               <div className={styles.loader}>
                 <Lottie
