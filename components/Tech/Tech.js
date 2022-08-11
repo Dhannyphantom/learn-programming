@@ -6,7 +6,12 @@ import { TECH_DATA } from "../../constants/dataStore";
 const Item = ({ item }) => {
   return (
     <div style={{ backgroundColor: item.bg }} className={styles.techItem}>
-      <Image src={item.image} width={70} height={70} />
+      <Image
+        src={item.image}
+        width={70}
+        height={70}
+        alt={`image showing the tech stack for ${item.name}`}
+      />
       {item.name && (
         <p style={{ color: item.text }} className={styles.techName}>
           {item.name}
