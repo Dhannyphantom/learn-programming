@@ -8,9 +8,8 @@ import Button from "../Button/Button";
 import formApi from "../../routes/formApi";
 import { formInitials, formValidation } from "../../constants/schema";
 import Modal from "../Modal/Modal";
-import Lottie from "react-lottie-player";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import loader from "../../public/lottie/two_line_circle_spinner.json";
+import Loader from "../Loader/Loader";
 const boxData = [
   {
     id: nanoid(),
@@ -120,16 +119,7 @@ export default function Card() {
               type="radio"
             />
             <Button title="Enroll" noFormik={false}/>
-            {loading && (
-              <div className={styles.loader}>
-                <Lottie
-                  loop
-                  animationData={loader}
-                  play
-                  style={{ width: 50, height: 50 }}
-                />
-              </div>
-            )}
+            <Loader visible={loading} />
           </div>
         </Formik>
       </div>
