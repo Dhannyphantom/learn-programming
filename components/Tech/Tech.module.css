@@ -12,7 +12,7 @@
   gap: 25px;
   margin-top: 50px;
   justify-content: center;
-  grid-template-columns: 300px 300px 300px 300px;
+  grid-template-columns: 260px 260px;
 }
 
 .techItem {
@@ -45,7 +45,7 @@
   }
 }
 
-@media only screen and (min-width: 1250px) {
+@media only screen and (min-width: 1300px) {
   .tech {
     grid-template-columns: 300px 300px 300px 300px;
   }
