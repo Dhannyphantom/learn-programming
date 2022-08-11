@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./Modal.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+// modal = {vis: bool, type: "success/failed", msg: string}
+
 export default function Modal({ modal, setModal }) {
   if (!modal?.vis) return null;
 
