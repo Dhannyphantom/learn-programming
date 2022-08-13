@@ -1,71 +1,71 @@
 .container {
-    display: grid;
-    grid-template-columns: 260px 260px;
-    gap: 30px;
-    justify-content: center;
+  display: grid;
+  grid-template-columns: 260px 260px;
+  gap: 30px;
+  justify-content: center;
 }
 
 .itemContainer {
-    background-color: white;
-    padding: 10px;
-    box-shadow: 3px 1px 22px 2px rgba(0,0,0,0.2);
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;    
+  background-color: white;
+  padding: 10px;
+  box-shadow: 2px 1px 15px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
 }
 
 .itemPic {
-    width: 75px;
-    height: 75px;
-    background-color: white;
-    align-self: center;
-    border-radius: 50%;
-    margin-top: 10px;
-    box-shadow: inset 2px 1px 22px 2px rgba(0,0,0,0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 75px;
+  height: 75px;
+  background-color: white;
+  align-self: center;
+  border-radius: 50%;
+  margin-top: 10px;
+  box-shadow: inset 2px 1px 10px 2px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .itemPic > h1 {
-    font-size: 30px;
-    text-transform: uppercase;
-    color: #041b2d
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #041b2d;
 }
 
 .itemDetails {
-    font-size: 0.75rem;
-    padding: 6px;
-    text-align: center;
-    text-transform: capitalize;
+  font-size: 0.75rem;
+  padding: 6px;
+  text-align: center;
+  text-transform: capitalize;
 }
 
 .itemDetails > h4 {
-    font-weight: bolder;
-    font-size: 0.9rem;
-    text-align: center;
+  font-weight: bolder;
+  font-size: 0.9rem;
+  text-align: center;
 }
 
 .title {
-    text-align: center;
-    margin-top: 35px;
-    margin-bottom: 35px;
+  text-align: center;
+  margin-top: 35px;
+  margin-bottom: 35px;
 }
 
 @media only screen and (max-width: 600px) {
-    .container {
-        grid-template-columns: 260px 260px;
-    }
+  .container {
+    grid-template-columns: 260px 260px;
+  }
 }
 
 @media only screen and (min-width: 900px) {
-    .container {
-        grid-template-columns: 260px 260px 260px;
-    }
+  .container {
+    grid-template-columns: 260px 260px 260px;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
-    .container {
-        grid-template-columns: 260px 260px 260px 260px;
-    }
+  .container {
+    grid-template-columns: 260px 260px 260px 260px;
+  }
 }

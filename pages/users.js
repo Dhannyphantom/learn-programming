@@ -5,12 +5,13 @@ import styles from "../styles/Users.module.css";
 import userApi from "../routes/userApi";
 import ListUsers from "../components/ListUsers/ListUsers";
 import Modal from "../components/Modal/Modal";
+import { connect } from "../config/dbConnect";
+import User from "../models/User";
 import Loader from "../components/Loader/Loader";
 
-export default function UsersPage() {
+function UsersPage({ users }) {
   const [token, setToken] = useState("");
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [showUsers, setShowUsers] = useState(false);
   const [modal, setModal] = useState({ vis: false });
 
   const onChangeText = (fn, fv) => {
@@ -18,22 +19,15 @@ export default function UsersPage() {
     setToken(fv);
   };
 
-  const fetchUsers = async () => {
-    if (token.length < 2) return;
-    setLoading(true);
-    try {
-      const res = await userApi.get(`/all-users/?token=${token}`);
-      console.log(res.data);
-      setUsers(res.data.users);
-      setLoading(false);
-    } catch (err) {
-      console.log(err);
+  const onFetchUsers = () => {
+    if (token !== "dann") {
       setModal({
         vis: true,
         type: "error",
-        msg: "Unauthorized request",
+        msg: "Unauthorized request!",
       });
-      setLoading(false);
+    } else {
+      setShowUsers(!showUsers);
     }
   };
 
@@ -46,13 +40,28 @@ export default function UsersPage() {
           onChangeText={onChangeText}
           placeholder="fetch token"
         />
-        <Button title="Fetch" onPress={fetchUsers} noFormik />
+        <Button title="Fetch" onPress={onFetchUsers} noFormik />
       </div>
-      <ListUsers users={users} />
-      <div className={styles.input}>
+      {showUsers && <ListUsers users={users} />}
+      {/* <div className={styles.input}>
         <Loader visible={loading} />
-      </div>
+      </div> */}
       <Modal modal={modal} setModal={setModal} />
     </div>
   );
 }
+
+export async function getStaticProps() {
+  await connect(null, (errMsg) => console.log(errMsg.err));
+  const users = await User.find();
+  const usersStr = JSON.parse(JSON.stringify(users));
+
+  return {
+    props: {
+      users: usersStr,
+    },
+    revalidate: 5 * 60, // 5min
+  };
+}
+
+export default UsersPage;

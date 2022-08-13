@@ -6,12 +6,12 @@ const connectMongo = async () => {
     .then(() => console.log("MONGODB CONNECTED..."));
 };
 
-
-export const connect = async (res) => {
+export const connect = async (res, cb) => {
   try {
     await connectMongo();
   } catch (err) {
-    res.status(422).json({ msg: "Unable to connect to server" });
+    res && res.status(422).json({ msg: "Unable to connect to MongoDB server" });
+    cb && cb({ err: "Unable to connect to MongoDB Server" });
   }
-}
+};
 export default connectMongo;

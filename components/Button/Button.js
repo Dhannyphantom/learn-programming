@@ -1,15 +1,8 @@
 import styles from "./Button.module.css";
-import { useFormikContext } from "formik";
 
-export default function Button({ noFormik = false, title, onPress }) {
-  const formikContext = useFormikContext();
-
+export default function Button({ title, onPress }) {
   const onBtnClick = () => {
-    if (!noFormik) {
-      formikContext.handleSubmit();
-    } else {
-      onPress && onPress();
-    }
+    onPress && onPress();
   };
 
   return (
