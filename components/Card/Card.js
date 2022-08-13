@@ -10,6 +10,7 @@ import Modal from "../Modal/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Loader from "../Loader/Loader";
 import { boxData, pcData } from "../../constants/dataStore";
+import FormButton from "../FormButton/FormButton";
 
 export default function Card() {
   const [modal, setModal] = useState({ vis: false });
@@ -86,7 +87,7 @@ export default function Card() {
               placeholder="phone number"
               type="radio"
             />
-            <Button title="Enroll" noFormik={false} />
+            <FormButton title="Enroll" />
             <Loader visible={loading} />
           </div>
         </Formik>

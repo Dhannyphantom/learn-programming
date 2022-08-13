@@ -1,6 +1,8 @@
 import styles from "./Input.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+const normalTypes = ["text", "password", "email"];
+
 export default function Input({
   title,
   placeholder = "",
@@ -11,8 +13,6 @@ export default function Input({
   onChangeText,
   type = "text",
 }) {
-
-
   const onChangeInput = (e) => {
     onChangeText && onChangeText(e.target.name, e.target.value);
   };
@@ -24,7 +24,7 @@ export default function Input({
           <p className={styles.title}>{title}</p>
         </div>
         <div className={styles.inputContainer}>
-          {type === "text" ? (
+          {normalTypes.includes(type) ? (
             <input
               type={type}
               onBlur={onBlur}

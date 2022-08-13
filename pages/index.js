@@ -13,9 +13,8 @@ export default function Home() {
         <title>Learn Programming</title>
         <meta
           name="description"
-          content="Learn Programming & Become a Software Developer"
+          content="Learn How To Code & Become a Software Developer at TechLab Industries"
         />
-        <link rel="icon" href="/favicon.png" />
       </Head>
 
       <Info />

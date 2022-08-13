@@ -7,7 +7,6 @@ import ListUsers from "../components/ListUsers/ListUsers";
 import Modal from "../components/Modal/Modal";
 import { connect } from "../config/dbConnect";
 import User from "../models/User";
-import Loader from "../components/Loader/Loader";
 
 function UsersPage({ users }) {
   const [token, setToken] = useState("");
@@ -20,6 +19,7 @@ function UsersPage({ users }) {
   };
 
   const onFetchUsers = () => {
+    if (token.length < 2) return;
     if (token !== "dann") {
       setModal({
         vis: true,
@@ -37,15 +37,13 @@ function UsersPage({ users }) {
         <Input
           title="Token"
           name="token"
+          type="password"
           onChangeText={onChangeText}
           placeholder="fetch token"
         />
         <Button title="Fetch" onPress={onFetchUsers} noFormik />
       </div>
       {showUsers && <ListUsers users={users} />}
-      {/* <div className={styles.input}>
-        <Loader visible={loading} />
-      </div> */}
       <Modal modal={modal} setModal={setModal} />
     </div>
   );
