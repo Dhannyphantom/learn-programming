@@ -8,12 +8,12 @@ export default function Info() {
         Are you interested in learning Web development, App Development & User
         Experience?
       </p>
-      <p>Well Join Us NOW @{`St. Augustine's`} college, Kabba</p>
+      <p>Join Our Online Zoom Classes or Attend Our Classes In Kabba</p>
       <div className={styles.priceContainer}>
         <p className={styles.priceText}>
           <small className={styles.price}>
             {String.fromCharCode("0x20A6")}6,000
-          </small>{" "}
+          </small>
           first month promo deal
         </p>
       </div>

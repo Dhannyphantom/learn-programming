@@ -2,8 +2,14 @@
   position: relative;
   left: 0;
   bottom: 0;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   background-color: #041b2d;
+}
+
+.icon {
+  padding-right: 20px;
 }
 
 .footer > p {
@@ -12,4 +18,10 @@
   padding: 10px;
   text-align: center;
   margin: 0;
+}
+
+.socials {
+  display: flex;
+  align-self: flex-end;
+  padding: 10px;
 }
