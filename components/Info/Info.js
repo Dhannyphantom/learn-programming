@@ -8,7 +8,7 @@ export default function Info() {
         Are you interested in learning Web development, App Development & User
         Experience?
       </p>
-      <p>Join Our Online Zoom Classes or Attend Our Classes In Kabba</p>
+      <p>Join Our Online Classes @Google Meet or Attend Our Classes In Kabba</p>
       <div className={styles.priceContainer}>
         <p className={styles.priceText}>
           <small className={styles.price}>
