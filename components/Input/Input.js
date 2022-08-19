@@ -10,6 +10,7 @@ export default function Input({
   onBlur,
   values,
   name,
+  value,
   onChangeText,
   type = "text",
 }) {
@@ -30,6 +31,7 @@ export default function Input({
               onBlur={onBlur}
               name={name}
               onChange={onChangeInput}
+              value={value ?? ""}
               autoComplete="nocomplete"
               className={styles.input}
               placeholder={`Enter your ${placeholder}`}
