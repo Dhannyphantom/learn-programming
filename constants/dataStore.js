@@ -138,6 +138,13 @@ export const navTab = [
   },
   {
     id: nanoid(),
+    name: "ask",
+    active: false,
+    scroll: true,
+    path: "/ask",
+  },
+  {
+    id: nanoid(),
     name: "about",
     active: false,
     scroll: false,
