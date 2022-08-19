@@ -13,11 +13,6 @@ function UsersPage({ users }) {
   const [showUsers, setShowUsers] = useState(false);
   const [modal, setModal] = useState({ vis: false });
 
-  const onChangeText = (fn, fv) => {
-    // alert(fn + ":" + fv)
-    setToken(fv);
-  };
-
   const onFetchUsers = () => {
     if (token.length < 2) return;
     if (token !== "dann") {
@@ -37,8 +32,9 @@ function UsersPage({ users }) {
         <Input
           title="Token"
           name="token"
+          value={token}
           type="password"
-          onChangeText={onChangeText}
+          onChangeText={(n, v) => setToken(v)}
           placeholder="fetch token"
         />
         <Button title="Fetch" onPress={onFetchUsers} noFormik />
