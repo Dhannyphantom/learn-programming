@@ -1,5 +1,5 @@
 function PaymentPage() {
-  return <h1>Ask us your question and {"we'll"} get back to you</h1>;
+  return <h1>Have you enrolled and want to pay?</h1>;
 }
 
 export default PaymentPage;
