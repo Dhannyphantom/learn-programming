@@ -1,7 +1,7 @@
 import styles from "./Input.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const normalTypes = ["text", "password", "email"];
+const normalTypes = ["text", "password", "email", "number"];
 
 export default function Input({
   title,
@@ -25,7 +25,16 @@ export default function Input({
           <p className={styles.title}>{title}</p>
         </div>
         <div className={styles.inputContainer}>
-          {normalTypes.includes(type) ? (
+          {type === "textarea" ? (
+            <textarea
+              placeholder="Ask a question"
+              onBlur={onBlur}
+              onChange={onChangeInput}
+              value={value ?? ""}
+              name={name}
+              className={styles.input}
+            ></textarea>
+          ) : normalTypes.includes(type) ? (
             <input
               type={type}
               onBlur={onBlur}
