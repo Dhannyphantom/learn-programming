@@ -13,8 +13,8 @@ export default function Info() {
         <p className={styles.priceText}>
           <small className={styles.price}>
             {String.fromCharCode("0x20A6")}6,000
-          </small>
-          first month promo deal
+          </small>{" "}
+          /month for 2-3 months
         </p>
       </div>
     </div>

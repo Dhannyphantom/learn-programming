@@ -6,7 +6,7 @@ import { nanoid } from "nanoid";
 import userApi from "../../routes/userApi";
 
 const AMOUNT = 600000;
-const PUBLIC_KEY = "";
+const PUBLIC_KEY = process.env.NEXT_PUBLIC_KEY_PAYSTACK;
 const STACK_CONFIG = {
   reference: nanoid(),
   amount: AMOUNT,
@@ -17,17 +17,6 @@ const STACK_CONFIG = {
 const PayStack = () => {
   const [userEmail, setUserEmail] = useState("");
   const [user, setUser] = useState({ verified: false });
-
-  const ConsumerProps = {
-    ...STACK_CONFIG,
-    email: user.email,
-    metadata: {
-      name: user.name,
-      phone: user.phoneNumber,
-    },
-    onSuccess: (ref) => handlePaymentSuccess(ref),
-    onClose: handlePaymentFailed,
-  };
 
   const handleFetchUser = async () => {
     try {
@@ -51,6 +40,17 @@ const PayStack = () => {
   };
   const handlePaymentFailed = (type, ref) => {
     console.log("Failed");
+  };
+
+  const ConsumerProps = {
+    ...STACK_CONFIG,
+    email: user.email,
+    metadata: {
+      name: user.name,
+      phone: user.phoneNumber,
+    },
+    onSuccess: (ref) => handlePaymentSuccess(ref),
+    onClose: handlePaymentFailed,
   };
 
   return (
