@@ -1,7 +1,7 @@
 import Input from "../Input/Input";
 import { useState } from "react";
 import Button from "../Button/Button";
-import { PaystackConsumer } from "react-paystack";
+import { PaystackConsumer, usePaystackPayment } from "react-paystack";
 import { nanoid } from "nanoid";
 import userApi from "../../routes/userApi";
 import styles from "./PayStack.module.css";
@@ -13,6 +13,20 @@ const STACK_CONFIG = {
   amount: AMOUNT,
   publicKey: PUBLIC_KEY,
   text: "Pay For Tuition",
+};
+
+const PayButton = ({ config, handlePaymentFailed, handlePaymentSuccess }) => {
+  const initializePayment = usePaystackPayment(config);
+
+  return (
+    <Button
+      title="Pay Now"
+      onPress={() => {
+        console.log(config);
+        initializePayment(handlePaymentSuccess, handlePaymentFailed);
+      }}
+    />
+  );
 };
 
 const PayStack = () => {
@@ -44,7 +58,7 @@ const PayStack = () => {
     console.log("Failed");
   };
 
-  const ConsumerProps = {
+  const consumerProps = {
     ...STACK_CONFIG,
     email: user.email,
     metadata: {
@@ -59,7 +73,7 @@ const PayStack = () => {
     <div className={styles.container}>
       <div className={styles.form}>
         <h1 className={styles.title}>
-          Have you successfully enrolled and want to pay for the classes?
+          Have you successfully enrolled and want to pay for your classes?
         </h1>
 
         <Input
@@ -70,16 +84,11 @@ const PayStack = () => {
           value={userEmail}
         />
         {user.verified ? (
-          <PaystackConsumer {...ConsumerProps}>
-            {({ initializePayment }) => (
-              <Button
-                title="Pay Now"
-                onPress={() =>
-                  initializePayment(handlePaymentSuccess, handlePaymentFailed)
-                }
-              />
-            )}
-          </PaystackConsumer>
+          <PayButton
+            config={consumerProps}
+            handlePaymentFailed={handlePaymentFailed}
+            handlePaymentSuccess={handlePaymentSuccess}
+          />
         ) : (
           <Button title="Verify User" onPress={handleFetchUser} />
         )}
