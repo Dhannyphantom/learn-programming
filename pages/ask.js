@@ -10,7 +10,7 @@ import axios from "axios";
 
 function AskPage({ questionsArr }) {
   const [question, setQuestion] = useState({ text: "", name: "" });
-  const [questions, setQuestions] = useState(questionsArr ?? []);
+  const [questions, setQuestions] = useState([]);
 
   console.log(questionsArr);
 
