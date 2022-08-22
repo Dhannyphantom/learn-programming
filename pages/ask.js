@@ -3,6 +3,7 @@ import Button from "../components/Button/Button";
 import Input from "../components/Input/Input";
 import ListQuestion from "../components/ListQuestion/ListQuestion";
 import { nanoid } from "nanoid";
+import styles from "../styles/Ask.module.css";
 
 function AskPage() {
   const [question, setQuestion] = useState({ text: "", name: "" });
@@ -16,7 +17,7 @@ function AskPage() {
   };
 
   const onQuestionAsked = () => {
-    console.log(question);
+    console.log(questions);
 
     const copier = [...questions];
     const finder = copier.findIndex((obj) => obj.name === question.name);
@@ -29,12 +30,13 @@ function AskPage() {
       });
     } else {
       copier[finder].questions.push({
-        name: question.name,
         id: nanoid(),
-        questions: [{ text: question.text, id: nanoid(), reply: "" }],
+        text: question.text,
+        reply: "",
       });
     }
     setQuestions(copier);
+    setQuestion({ ...question, text: "" });
   };
 
   return (
