@@ -4,6 +4,7 @@ import Input from "../components/Input/Input";
 import ListQuestion from "../components/ListQuestion/ListQuestion";
 import { nanoid } from "nanoid";
 import styles from "../styles/Ask.module.css";
+import axios from "axios";
 
 function AskPage() {
   const [question, setQuestion] = useState({ text: "", name: "" });
@@ -16,7 +17,7 @@ function AskPage() {
     });
   };
 
-  const onQuestionAsked = () => {
+  const onQuestionAsked = async () => {
     console.log(questions);
 
     const copier = [...questions];
@@ -37,6 +38,13 @@ function AskPage() {
     }
     setQuestions(copier);
     setQuestion({ ...question, text: "" });
+
+    try {
+      const res = await axios.post("/api/ask/question", { data: question });
+      console.log(res.data);
+    } catch (err) {
+      console.log("UNABLE TO ASK QUESTION", err);
+    }
   };
 
   return (
