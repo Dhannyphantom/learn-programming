@@ -5,9 +5,11 @@ import { PaystackConsumer, usePaystackPayment } from "react-paystack";
 import { nanoid } from "nanoid";
 import userApi from "../../routes/userApi";
 import styles from "./PayStack.module.css";
+import UserDetail from "../UserDetail/UserDetail";
 
-const AMOUNT = 600000;
+const AMOUNT = 610000;
 const PUBLIC_KEY = process.env.NEXT_PUBLIC_KEY_PAYSTACK;
+// const PUBLIC_KEY = "pk_test_28bf733e4c5ef3894b05fbea6732e0f5b93892d3";
 const STACK_CONFIG = {
   reference: nanoid(),
   amount: AMOUNT,
@@ -44,6 +46,7 @@ const PayStack = () => {
       const userObj = res.data.user;
       setUser({
         verified: true,
+        refId: nanoid(),
         ...userObj,
       });
     } catch (err) {
@@ -61,20 +64,21 @@ const PayStack = () => {
   const consumerProps = {
     ...STACK_CONFIG,
     email: user.email,
+    reference: user.refId ?? nanoid(),
     metadata: {
       name: user.name,
       phone: user.phoneNumber,
     },
-    onSuccess: (ref) => handlePaymentSuccess(ref),
-    onClose: handlePaymentFailed,
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.form}>
-        <h1 className={styles.title}>
+        <h1 className={styles.title}>Pay For Your Class</h1>
+        <p className={styles.subTitle}>
           Have you successfully enrolled and want to pay for your classes?
-        </h1>
+          <br />
+        </p>
 
         <Input
           title="Email"
@@ -83,6 +87,14 @@ const PayStack = () => {
           placeholder="registered email"
           value={userEmail}
         />
+
+        {/* REFACTOR CODE BELOW & LISTUSERS ITEM */}
+        {user.verified && (
+          <div className={styles.user}>
+            <UserDetail item={user} />
+          </div>
+        )}
+
         {user.verified ? (
           <PayButton
             config={consumerProps}
