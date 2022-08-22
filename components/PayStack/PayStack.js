@@ -6,6 +6,8 @@ import { nanoid } from "nanoid";
 import userApi from "../../routes/userApi";
 import styles from "./PayStack.module.css";
 import UserDetail from "../UserDetail/UserDetail";
+import Loader from "../Loader/Loader";
+import Modal from "../Modal/Modal";
 
 const AMOUNT = 610000;
 const PUBLIC_KEY = process.env.NEXT_PUBLIC_KEY_PAYSTACK;
@@ -33,10 +35,14 @@ const PayButton = ({ config, handlePaymentFailed, handlePaymentSuccess }) => {
 
 const PayStack = () => {
   const [userEmail, setUserEmail] = useState("");
+  const [modal, setModal] = useState({ vis: false });
+  const [loading, setLoading] = useState(false);
+
   const [user, setUser] = useState({ verified: false });
 
   const handleFetchUser = async () => {
     if (userEmail.length < 5) return false;
+    setLoading(true);
     try {
       const res = await userApi.get(
         `/payment?email=${userEmail?.toLowerCase()}`
@@ -49,16 +55,30 @@ const PayStack = () => {
         refId: nanoid(),
         ...userObj,
       });
+      setLoading(false);
     } catch (err) {
-      console.log(err);
+      setLoading(false);
+      setModal({
+        vis: true,
+        type: "error",
+        msg: "User not found, Ensure you're enrolled!",
+      });
     }
   };
 
   const handlePaymentSuccess = (ref) => {
-    console.log("Successful");
+    setModal({
+      vis: true,
+      type: "success",
+      msg: "Successfully paid. See you in class",
+    });
   };
   const handlePaymentFailed = (type, ref) => {
-    console.log("Failed");
+    setModal({
+      vis: true,
+      type: "error",
+      msg: "Something went wrong with the transaction, try again",
+    });
   };
 
   const consumerProps = {
@@ -75,20 +95,24 @@ const PayStack = () => {
     <div className={styles.container}>
       <div className={styles.form}>
         <h1 className={styles.title}>Pay For Your Class</h1>
-        <p className={styles.subTitle}>
+        <p className={styles.title}>
           Have you successfully enrolled and want to pay for your classes?
           <br />
+          <small className={styles.price}>
+            {String.fromCharCode("0x20A6")}6,000{" "}
+          </small>{" "}
+          monthly payment
         </p>
 
         <Input
           title="Email"
           onChangeText={(n, v) => setUserEmail(v)}
           name="email"
+          type="email"
           placeholder="registered email"
           value={userEmail}
         />
 
-        {/* REFACTOR CODE BELOW & LISTUSERS ITEM */}
         {user.verified && (
           <div className={styles.user}>
             <UserDetail item={user} />
@@ -105,7 +129,9 @@ const PayStack = () => {
             <Button title="Verify User" onPress={handleFetchUser} />
           )}
         </div>
+        <Loader visible={loading} />
       </div>
+      <Modal modal={modal} setModal={setModal} />
     </div>
   );
 };

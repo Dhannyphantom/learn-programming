@@ -17,6 +17,11 @@
   text-align: center;
 }
 
+.price {
+  font-weight: bolder;
+  font-size: 17px;
+}
+
 .user {
   max-width: 400px;
   min-width: 300px;
