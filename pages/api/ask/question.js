@@ -1,6 +1,6 @@
 // /api/users/question
 import { connect } from "../../../config/dbConnect";
-import Question from "../../model/Question";
+import Question from "../../../models/Question";
 
 export default async function handler(req, res) {
   await connect(res);
@@ -8,7 +8,6 @@ export default async function handler(req, res) {
     const data = req.body.data;
     if (!data) return res.status(422).json({ err: "No question asked" });
 
-    console.log(data);
     const userQuestion = await Question.findOne({ name: data.name });
 
     if (!userQuestion) {
@@ -26,6 +25,6 @@ export default async function handler(req, res) {
       await userQuestion.save();
     }
 
-    res.status(200).json({ user });
+    res.status(200).json({ msg: "sent successfully, expect feedback soon" });
   }
 }

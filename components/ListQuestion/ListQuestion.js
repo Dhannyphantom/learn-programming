@@ -22,7 +22,10 @@ export default function ListQuestion({ data }) {
                       className={styles.questionContent}
                       key={question.id ?? question._id}
                     >
-                      <i className={styles.questionText}> {question.text} </i>
+                      <i className={styles.questionText}>
+                        {" "}
+                        &bull; {question.text}{" "}
+                      </i>
                       <p className={styles.questionReply}>{question.reply}</p>
                     </div>
                   );

@@ -30,6 +30,7 @@ export default function Input({
               placeholder="Ask a question"
               onBlur={onBlur}
               onChange={onChangeInput}
+              rows="5"
               value={value ?? ""}
               name={name}
               className={styles.input}

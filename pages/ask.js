@@ -4,11 +4,15 @@ import Input from "../components/Input/Input";
 import ListQuestion from "../components/ListQuestion/ListQuestion";
 import { nanoid } from "nanoid";
 import styles from "../styles/Ask.module.css";
+import Question from "../models/Question";
+import connect from "../config/dbConnect";
 import axios from "axios";
 
-function AskPage() {
+function AskPage({ questionsArr }) {
   const [question, setQuestion] = useState({ text: "", name: "" });
-  const [questions, setQuestions] = useState([]);
+  const [questions, setQuestions] = useState(questionsArr ?? []);
+
+  console.log(questionsArr);
 
   const onChangeText = (name, val) => {
     setQuestion({
@@ -19,6 +23,7 @@ function AskPage() {
 
   const onQuestionAsked = async () => {
     console.log(questions);
+    if (question.name.length < 2 || question.text.length < 2) return;
 
     const copier = [...questions];
     const finder = copier.findIndex((obj) => obj.name === question.name);
@@ -73,6 +78,19 @@ function AskPage() {
       <ListQuestion data={questions} />
     </main>
   );
+}
+
+export async function getStaticProps() {
+  await connect(null, (errMsg) => console.log(errMsg.err));
+  const questions = await Question.find();
+  const questionCleaned = JSON.parse(JSON.stringify(questions));
+
+  return {
+    props: {
+      questionsArr: questionCleaned,
+    },
+    revalidate: 5 * 60, // 5min
+  };
 }
 
 export default AskPage;

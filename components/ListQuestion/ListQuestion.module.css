@@ -14,10 +14,12 @@
 
 .profile > h4 {
   margin: 0;
+  text-transform: capitalize;
 }
 
 .profilePic {
   width: 60px;
+  text-transform: capitalize;
   height: 60px;
   border-radius: 50%;
   display: flex;
@@ -41,6 +43,12 @@
 
 .questionText {
   margin-left: 80px;
+}
+
+.questionReply {
+  font-size: 13px;
+  margin-left: 95px;
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 490px) {
