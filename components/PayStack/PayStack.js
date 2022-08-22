@@ -94,16 +94,17 @@ const PayStack = () => {
             <UserDetail item={user} />
           </div>
         )}
-
-        {user.verified ? (
-          <PayButton
-            config={consumerProps}
-            handlePaymentFailed={handlePaymentFailed}
-            handlePaymentSuccess={handlePaymentSuccess}
-          />
-        ) : (
-          <Button title="Verify User" onPress={handleFetchUser} />
-        )}
+        <div className={styles.btn}>
+          {user.verified ? (
+            <PayButton
+              config={consumerProps}
+              handlePaymentFailed={handlePaymentFailed}
+              handlePaymentSuccess={handlePaymentSuccess}
+            />
+          ) : (
+            <Button title="Verify User" onPress={handleFetchUser} />
+          )}
+        </div>
       </div>
     </div>
   );
