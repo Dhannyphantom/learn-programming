@@ -82,7 +82,7 @@ function AskPage({ questionsArr }) {
 
 export async function getStaticProps() {
   await connect(null, (errMsg) => console.log(errMsg.err));
-  const questions = await Question.find();
+  const questions = await Question.find().sort({ _id: -1 });
   const questionCleaned = JSON.parse(JSON.stringify(questions));
 
   return {
