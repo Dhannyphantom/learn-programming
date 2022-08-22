@@ -10,9 +10,7 @@ import axios from "axios";
 
 function AskPage({ questionsArr }) {
   const [question, setQuestion] = useState({ text: "", name: "" });
-  const [questions, setQuestions] = useState([]);
-
-  console.log(questionsArr);
+  const [questions, setQuestions] = useState(questionsArr ?? []);
 
   const onChangeText = (name, val) => {
     setQuestion({
@@ -82,7 +80,7 @@ function AskPage({ questionsArr }) {
 
 export async function getStaticProps() {
   await connect(null, (errMsg) => console.log(errMsg.err));
-  const questions = await Question.find().sort({ _id: -1 });
+  const questions = await Question.find().sort({ _id: "-1" });
   const questionCleaned = JSON.parse(JSON.stringify(questions));
 
   return {
