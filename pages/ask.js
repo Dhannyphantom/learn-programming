@@ -1,15 +1,37 @@
 import { useState } from "react";
 import Button from "../components/Button/Button";
 import Input from "../components/Input/Input";
+import ListQuestion from "../components/ListQuestion/ListQuestion";
 
 function AskPage() {
   const [question, setQuestion] = useState({ text: "", name: "" });
+  const [questions, setQuestions] = useState([]);
 
   const onChangeText = (name, val) => {
     setQuestion({
       ...question,
       [name]: val,
     });
+  };
+
+  const onQuestionAsked = () => {
+    console.log(question);
+
+    const copier = [...questions];
+    const finder = copier.findIndex((obj) => obj.name === question.name);
+
+    if (finder <= -1) {
+      copier.push({
+        name: question.name,
+        questions: [{ text: question.text, reply: "" }],
+      });
+    } else {
+      copier[finder].questions.push({
+        name: question.name,
+        questions: [{ text: question.text, reply: "" }],
+      });
+    }
+    setQuestions(copier);
   };
 
   return (
@@ -31,7 +53,8 @@ function AskPage() {
           placeholder="question"
           type="textarea"
         />
-        <Button title="Ask" />
+        <Button title="Ask" onPress={onQuestionAsked} />
+        <ListQuestion data={questions} />
       </form>
     </main>
   );
