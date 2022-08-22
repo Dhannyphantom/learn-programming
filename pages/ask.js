@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../components/Button/Button";
 import Input from "../components/Input/Input";
 import ListQuestion from "../components/ListQuestion/ListQuestion";
+import { nanoid } from "nanoid";
 
 function AskPage() {
   const [question, setQuestion] = useState({ text: "", name: "" });
@@ -23,12 +24,14 @@ function AskPage() {
     if (finder <= -1) {
       copier.push({
         name: question.name,
-        questions: [{ text: question.text, reply: "" }],
+        id: nanoid(),
+        questions: [{ text: question.text, id: nanoid(), reply: "" }],
       });
     } else {
       copier[finder].questions.push({
         name: question.name,
-        questions: [{ text: question.text, reply: "" }],
+        id: nanoid(),
+        questions: [{ text: question.text, id: nanoid(), reply: "" }],
       });
     }
     setQuestions(copier);
