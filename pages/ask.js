@@ -40,9 +40,11 @@ function AskPage() {
   };
 
   return (
-    <main>
-      <h1>Ask questions and {"we'll"} get back to you</h1>
-      <form>
+    <main className={styles.main}>
+      <h1 className={styles.title}>
+        Ask questions and {"we'll"} get back to you
+      </h1>
+      <form className={styles.form}>
         <Input
           title="Name"
           onChangeText={onChangeText}
@@ -59,8 +61,8 @@ function AskPage() {
           type="textarea"
         />
         <Button title="Ask" onPress={onQuestionAsked} />
-        <ListQuestion data={questions} />
       </form>
+      <ListQuestion data={questions} />
     </main>
   );
 }
