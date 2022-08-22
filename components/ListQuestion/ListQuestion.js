@@ -2,6 +2,7 @@ import styles from "./ListQuestion.module.css";
 
 export default function ListQuestion({ data }) {
   const isEmpty = !data[0];
+  //
   return (
     <section className={styles.container}>
       <h1>Questions</h1>
