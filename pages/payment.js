@@ -2,11 +2,11 @@ import PayStack from "../components/PayStack/PayStack";
 
 function PaymentPage() {
   return (
-    <div>
+    <main>
       <section>
         <PayStack />
       </section>
-    </div>
+    </main>
   );
 }
 

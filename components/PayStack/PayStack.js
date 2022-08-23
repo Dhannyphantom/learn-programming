@@ -11,7 +11,6 @@ import Modal from "../Modal/Modal";
 
 const AMOUNT = 610000;
 const PUBLIC_KEY = process.env.NEXT_PUBLIC_KEY_PAYSTACK;
-// const PUBLIC_KEY = "pk_test_28bf733e4c5ef3894b05fbea6732e0f5b93892d3";
 const STACK_CONFIG = {
   reference: nanoid(),
   amount: AMOUNT,
@@ -98,11 +97,15 @@ const PayStack = () => {
         <p className={styles.title}>
           Have you successfully enrolled and want to pay for your classes?
           <br />
+        </p>
+        <p className={styles.title}>
           <small className={styles.price}>
             {String.fromCharCode("0x20A6")}6,000{" "}
           </small>{" "}
           monthly payment
         </p>
+        <br />
+        <br />
 
         <Input
           title="Email"
