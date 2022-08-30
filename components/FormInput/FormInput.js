@@ -17,11 +17,19 @@ export default function FormInput({
     setFieldValue(formName, formValue);
   };
 
-
-
   return (
     <div>
-      <Input name={name} values={values} onBlur={() => setFieldTouched(name, true, true)} title={title} boxData={boxData} type={type} placeholder={placeholder} onChangeText={onChangeInput} />
+      <Input
+        name={name}
+        values={values}
+        value={values[name]}
+        onBlur={() => setFieldTouched(name, true, true)}
+        title={title}
+        boxData={boxData}
+        type={type}
+        placeholder={placeholder}
+        onChangeText={onChangeInput}
+      />
       {errors[name] && touched[name] && (
         <p className={styles.error}> {errors[name]} </p>
       )}
